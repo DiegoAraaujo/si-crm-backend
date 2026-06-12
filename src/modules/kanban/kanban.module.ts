@@ -7,9 +7,10 @@ import { MoveLeadUseCase } from './application/use-cases/move-lead.use-case';
 import { StatusRepository } from '../statuses/infra/repositories/status.repository';
 import { LeadRepository } from '../leads/infra/repositories/lead.repository';
 import { AuthModule } from '../auth/auth.module';
+import { ActivitiesModule } from '../activities/activities.module';
 
 @Module({
-  imports: [AuthModule],
+  imports: [AuthModule, ActivitiesModule],
   controllers: [KanbanController],
   providers: [
     PrismaService,
