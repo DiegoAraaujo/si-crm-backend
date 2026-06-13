@@ -5,6 +5,7 @@ import { StatusesModule } from './modules/statuses/statuses.module';
 import { LeadsModule } from './modules/leads/leads.module';
 import { KanbanModule } from './modules/kanban/kanban.module';
 import { ActivitiesModule } from './modules/activities/activities.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { ActivitiesModule } from './modules/activities/activities.module';
     LeadsModule,
     KanbanModule,
     ActivitiesModule,
+    DashboardModule,
   ],
 })
 export class AppModule {}
