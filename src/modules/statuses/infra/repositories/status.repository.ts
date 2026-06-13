@@ -34,6 +34,14 @@ export class StatusRepository implements IStatusRepository {
     return this.toEntity(status);
   }
 
+  async findDefaultByUserId(userId: string): Promise<StatusEntity | null> {
+    const status = await this.prisma.status.findFirst({
+      where: { userId, isDefault: true },
+    });
+    if (!status) return null;
+    return this.toEntity(status);
+  }
+
   async create(data: {
     name: string;
     color: string;
