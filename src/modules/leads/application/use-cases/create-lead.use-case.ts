@@ -16,7 +16,6 @@ interface CreateLeadInput {
   origin: string;
   notes?: string;
   userId: string;
-  statusId: string;
 }
 
 @Injectable()
@@ -29,12 +28,17 @@ export class CreateLeadUseCase {
   ) {}
 
   async execute(input: CreateLeadInput) {
-    const status = await this.statusRepository.findById(input.statusId);
+    const defaultStatus = await this.statusRepository.findDefaultByUserId(
+      input.userId,
+    );
 
-    if (!status || status.userId !== input.userId) {
+    if (!defaultStatus) {
       throw AppErrors.STATUS_NOT_FOUND;
     }
 
-    return this.leadRepository.create(input);
+    return this.leadRepository.create({
+      ...input,
+      statusId: defaultStatus.id,
+    });
   }
 }

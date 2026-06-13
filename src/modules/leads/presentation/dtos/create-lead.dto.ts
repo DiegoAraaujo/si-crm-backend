@@ -43,7 +43,4 @@ export class CreateLeadDto {
   @IsOptional()
   @IsString()
   notes?: string;
-
-  @IsString()
-  statusId!: string;
 }
