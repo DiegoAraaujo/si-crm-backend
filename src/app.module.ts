@@ -6,6 +6,7 @@ import { LeadsModule } from './modules/leads/leads.module';
 import { KanbanModule } from './modules/kanban/kanban.module';
 import { ActivitiesModule } from './modules/activities/activities.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { AiModule } from './modules/ai/ai.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
     KanbanModule,
     ActivitiesModule,
     DashboardModule,
+    AiModule,
   ],
 })
 export class AppModule {}
